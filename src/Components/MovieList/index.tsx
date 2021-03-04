@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useInfiniteScroll from "react-infinite-scroll-hook";
 import api from "../../Services/api";
 import { Movie, MovieCard } from "../MovieCard";
