@@ -23,6 +23,10 @@ export const Title = styled.header `
 `
 
 export const FilterButton = styled.button `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   border: 0;
   border-radius: 20px;
   font-size: 1.15rem;
@@ -32,6 +36,10 @@ export const FilterButton = styled.button `
   color: ${props => props.theme.colors.white};
   cursor: pointer;
   transition: filter 0.2s;
+
+  p {
+    margin-right: .5rem;
+  }
 
   :hover {
     filter: brightness(0.9);
