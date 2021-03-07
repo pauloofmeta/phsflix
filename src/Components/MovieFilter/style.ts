@@ -28,24 +28,6 @@ export const Contianer = styled.div `
     margin-bottom: 1rem;
   }
 `
-// export const GenreList = styled.ul `
-  
-// `
-
-// export const GenreChip = styled.li `
-//   display: inline-flex;
-//   border: 1px solid ${props => props.theme.colors.white};
-//   border-radius: 20px;
-//   padding: .2rem 1rem;
-//   margin-top: .5rem;
-//   margin-right: .3rem;
-//   cursor: pointer;
-
-//   :hover {
-//     background-color: ${props => props.theme.colors.blue};
-//     border-color: ${props => props.theme.colors.blue};
-//   }
-// `
 
 export const Button = styled.button`
   width: 100%;
@@ -62,5 +44,21 @@ export const Button = styled.button`
 
   :hover {
     filter: brightness(0.9);
+  }
+`
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  background: transparent;
+  border: 0;
+  color: ${props => props.theme.colors.white};
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: color 0.2s;
+
+  :hover {
+    color: ${props => props.theme.colors.red};
   }
 `
