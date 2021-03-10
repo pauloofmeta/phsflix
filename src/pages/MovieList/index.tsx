@@ -5,8 +5,8 @@ import { IoFilterSharp } from "react-icons/io5";
 
 import { stopHandle, toogleModal } from "../../actions/movieFilterActions";
 import api from "../../Services/api";
-import { Movie, MovieCard } from "../MovieCard";
-import { MovieFilter } from "../MovieFilter";
+import { Movie, MovieCard } from "../../Components/MovieCard";
+import { MovieFilter } from "../../Components/MovieFilter";
 import { Container, FilterButton, MovieListContainer, Title } from "./style";
 
 interface MoviesPopularData {

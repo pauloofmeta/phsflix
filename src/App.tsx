@@ -1,14 +1,12 @@
 import { ThemeProvider } from "styled-components";
-import { MovieList } from "./Components/MovieList";
-import { Navbar } from "./Components/Navbar";
+import Routes from "./routes";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import { defaultTheme } from "./styles/theme";
 
 export default function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Navbar />
-      <MovieList />
+      <Routes />
       <GlobalStyle />
     </ThemeProvider>
   );

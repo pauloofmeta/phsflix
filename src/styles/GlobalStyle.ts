@@ -15,6 +15,11 @@ export const GlobalStyle = createGlobalStyle`
     font: 400 16px "Source Sans Pro", Arial, sans-serif;
   }
 
+  a {
+    color: ${props => props.theme.colors.white};
+    text-decoration: none;
+  }
+
   @media(max-width: 1080px) {
     html {
       font-size: 93.75%;
