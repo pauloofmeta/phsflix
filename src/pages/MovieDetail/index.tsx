@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { MovieImage, movieImageSrc } from "../../Components/MovieImage";
 import api from "../../Services/api";
-import { Container, MovieInfo, MoviePoster, MovieTitle, MovieTitleContainer } from "./style";
+import { Container, MovieInfo, MoviePoster, MovieHeader, MovieTitleContainer, MovieTitle } from "./style";
 
 interface MovieDetailParams {
 	id: string;
@@ -59,34 +59,37 @@ export function MovieDetail() {
 			{ movie &&
 				<MovieTitleContainer img={movieImageSrc(movie.backdrop_path, 'w1920_and_h800_multi_faces', movie.poster_path)}>
 					<div className="titleContainerWrapper">
-						<MovieTitle>
+						<MovieHeader>
 							<MoviePoster>
 								<MovieImage name={movie.title} size="w500" path={movie.poster_path} />
 							</MoviePoster>
 
-							<MovieInfo>
-								<div className="title">
+							<MovieTitle>
+								<div className="titleTop">
 									<strong>{movie.title}</strong>
 									<p>({new Date(movie.release_date).getFullYear()})</p>
 								</div>
 								
-								<span>{timeStr(movie.runtime)}</span>
-								
-								{ (movie.genres && movie.genres.length > 0) && 
-									<ul className="genres">
-										{movie.genres.map(genre => 
-											<li key={genre.id}>{genre.name}</li>
-										)}
-									</ul>
-								}
+								<div className="titleInfo">
+									<span>{timeStr(movie.runtime)}</span>
+									
+									{ (movie.genres && movie.genres.length > 0) && 
+										<ul className="genres">
+											{movie.genres.map(genre => 
+												<li key={genre.id}>{genre.name}</li>
+											)}
+										</ul>
+									}
+								</div>
+							</MovieTitle>
 
+							<MovieInfo>
 								<div className="overview">
 									<strong>Sinopse</strong>
 									<p>{movie.overview}</p>
 								</div>
-
 							</MovieInfo>
-						</MovieTitle>
+						</MovieHeader>
 					</div>
 				</MovieTitleContainer>
       }

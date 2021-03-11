@@ -19,12 +19,34 @@ export const MovieTitleContainer = styled.div<MovieTitleContainerProps>`
   }
 `
 
-export const MovieTitle = styled.div`
+export const MovieHeader = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-template-rows: max-content;
+  grid-column-gap: 1rem;
+
+  div:nth-child(1) {
+    grid-row: 1 / 3;
+  }
+
+  @media(max-width: 720px) {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-row-gap: 1rem;
+
+    div:nth-child(1) {
+      grid-row: 2;
+    }
+
+    div:nth-child(2) {
+      grid-row: 1;
+      width: 100%;
+    }
+  }
 `
 
 export const MoviePoster = styled.div`
@@ -45,16 +67,13 @@ export const MoviePoster = styled.div`
   }
 `
 
-export const MovieInfo = styled.div`
-  padding-left: 2rem;
-
-  .title {
+export const MovieTitle = styled.div`
+  .titleTop {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     align-content: center;
-
     strong {
       font-size: 2.2rem;
       font-weight: 700;
@@ -67,18 +86,24 @@ export const MovieInfo = styled.div`
     }
   }
 
-  .genres {
-    padding: 0 .5rem;
-    display: inline-flex;
-    list-style: none;
+  .titleInfo {
+    .genres {
+      padding: 0 .5rem;
+      display: inline-flex;
+      list-style: none;
 
-    li ~ li::before {
-      content: ', '
+      li ~ li::before {
+        content: ', '
+      }
     }
   }
+`
+
+export const MovieInfo = styled.div`
+  
 
   .overview {
-    padding-top: 2rem;
+    padding-top: 1rem;
 
     strong {
       font-size: 1.5rem;
