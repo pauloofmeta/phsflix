@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
+import { ReactStars } from "react-rating-stars-component";
 import { useParams } from "react-router";
 import { MovieImage, movieImageSrc } from "../../Components/MovieImage";
 import api from "../../Services/api";
-import { Container, MovieInfo, MoviePoster, MovieHeader, MovieTitleContainer, MovieTitle } from "./style";
+import { Container, MovieInfo, MoviePoster, MovieHeader, MovieTitleContainer, MovieTitle, MovieOptions } from "./style";
 
 interface MovieDetailParams {
 	id: string;
@@ -71,7 +72,7 @@ export function MovieDetail() {
 								</div>
 								
 								<div className="titleInfo">
-									<span>{timeStr(movie.runtime)}</span>
+									{ movie.runtime > 0 && <span>{timeStr(movie.runtime)}</span> }
 									
 									{ (movie.genres && movie.genres.length > 0) && 
 										<ul className="genres">
@@ -82,6 +83,12 @@ export function MovieDetail() {
 									}
 								</div>
 							</MovieTitle>
+
+							<MovieOptions>
+								{/* <ReactStars
+									size={20}
+								/> */}
+							</MovieOptions>
 
 							<MovieInfo>
 								<div className="overview">

@@ -29,6 +29,14 @@ const movieFilterReducer = (state: MovieFilter = initialState, action: MovieFilt
                 hasHandle: action.filter.hasHandle
             }
         }
+
+        case actionsType.CLEAR_FILTER: {
+            return {
+                isModalOpen: false,
+                genresId: [],
+                hasHandle: true
+            }
+        }
     }
     return state;
 }

@@ -4,7 +4,7 @@ import { Chip, FilterChips } from "../FilterChips";
 import { Button, CloseButton, Contianer, Overlay } from "./style";
 import { IoClose } from "react-icons/io5";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { setFilter, toogleModal } from "../../actions/movieFilterActions";
+import { setFilter, toogleModal, clearFilter } from "../../actions/movieFilterActions";
 
 interface Genre {
   id: number;
@@ -49,6 +49,10 @@ export function MovieFilter() {
     dispatch(setFilter(Array.from(selected)))
   }
 
+  function handleClear() {
+    dispatch(clearFilter())
+  }
+
   return (
     <Overlay>
       <Contianer>
@@ -71,6 +75,10 @@ export function MovieFilter() {
 
         <Button type="button" onClick={handleFilter}>
           Filtrar
+        </Button>
+
+        <Button type="button" outlined onClick={handleClear}>
+          Limpar
         </Button>
       </Contianer>
     </Overlay>

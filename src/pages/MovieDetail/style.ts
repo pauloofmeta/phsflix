@@ -74,6 +74,8 @@ export const MovieTitle = styled.div`
     flex-wrap: wrap;
     align-items: center;
     align-content: center;
+    column-gap: .5rem;
+
     strong {
       font-size: 2.2rem;
       font-weight: 700;
@@ -82,15 +84,19 @@ export const MovieTitle = styled.div`
     p {
       font-size: 1.5rem;
       font-weight: 100;
-      margin-left: .5rem;
     }
   }
 
   .titleInfo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: .5rem;
+
     .genres {
-      padding: 0 .5rem;
-      display: inline-flex;
+      display: flex;
       list-style: none;
+      flex-wrap: wrap;
 
       li ~ li::before {
         content: ', '
@@ -98,6 +104,8 @@ export const MovieTitle = styled.div`
     }
   }
 `
+
+export const MovieOptions = styled.div``
 
 export const MovieInfo = styled.div`
   
