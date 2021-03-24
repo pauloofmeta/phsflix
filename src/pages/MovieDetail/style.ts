@@ -29,7 +29,7 @@ export const MovieHeader = styled.div`
   grid-column-gap: 1rem;
 
   div:nth-child(1) {
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
   }
 
   @media(max-width: 720px) {

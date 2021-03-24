@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { ReactStars } from "react-rating-stars-component";
+import ReactStars from "react-rating-stars-component";
 import { useParams } from "react-router";
 import { MovieImage, movieImageSrc } from "../../Components/MovieImage";
+import { Rating } from "../../Components/Rating";
 import api from "../../Services/api";
 import { Container, MovieInfo, MoviePoster, MovieHeader, MovieTitleContainer, MovieTitle, MovieOptions } from "./style";
 
@@ -32,6 +33,7 @@ interface Movie {
 	runtime: number;
 	genres: Genre[];
 	overview: string;
+	vote_average: number;
 }
 
 export function MovieDetail() {
@@ -41,7 +43,7 @@ export function MovieDetail() {
 	const handleMovie = useCallback(async () => {
 		const response = await api.get<Movie>(`/movie/${id}`,
 			{ params: { append_to_response: 'videos,images,watch/providers'}});
-		console.log(response.data);
+		console.log(response.data.vote_average);
 		setMovie(response.data);
 	}, [id]);
 
@@ -85,9 +87,16 @@ export function MovieDetail() {
 							</MovieTitle>
 
 							<MovieOptions>
-								{/* <ReactStars
+								<ReactStars
 									size={20}
-								/> */}
+									count={5}
+									isHalf={true}
+									edit={true}
+									value={7}
+									onChange={(nu) => console.log(nu)}
+								/>
+
+								<Rating />
 							</MovieOptions>
 
 							<MovieInfo>

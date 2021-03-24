@@ -3,8 +3,17 @@ declare module "react-rating-stars-component" {
 
   interface ReactStarsProp {
     size?: number;
+    count?: number;
+    value?: number;
+    char?: string;
+    edit?: boolean;
+    isHalf?: boolean;
+    emptyIcon?: Element;
+    halfIcon?: Element;
+    filledIcon?: Element;
+    onChange?: (newRating: number) => void;
   }
 
-  export class ReactStars extends React.Component<ReactStarsProp, any> {}
-
+  declare class ReactStars extends React.Component<ReactStarsProp> {}
+  export default ReactStars;
 }
