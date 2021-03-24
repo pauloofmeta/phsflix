@@ -10,8 +10,7 @@ export interface RatingProps {
 }
 
 export function Rating({
-  count = 5,
-  value = 0
+  count = 5
 }: RatingProps) {
 
   const [stars, setStars] = useState<StarData[]>(getStars());
@@ -27,7 +26,7 @@ export function Rating({
 
   return (
     <div>
-      { stars.map((star, i) =>
+      { stars.map((_, i) =>
         <span key={i}>★</span>
       ) }
     </div>
