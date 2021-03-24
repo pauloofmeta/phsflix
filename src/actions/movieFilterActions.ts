@@ -23,3 +23,11 @@ export function stopHandle(): MovieFilterAction {
         filter: { isModalOpen: false, genresId: [], hasHandle: false }
     }
 }
+
+export function clearFilter(): MovieFilterAction {
+    localStorage.removeItem("MOVIE_FILTER");
+    return {
+        type: actionsType.CLEAR_FILTER,
+        filter: { isModalOpen: false, genresId: [], hasHandle: false }
+    }
+}
